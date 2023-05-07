@@ -20,8 +20,10 @@ const Header = () => {
       }, 0);
 
       setTotalItems(totalItems);
+    } else {
+      setTotalItems(0);
     }
-  }, [shoppingCart, setTotalItems]);
+  }, [shoppingCart]);
 
   return (
     <header className="flex justify-between px-5 md:px-8 py-5 border-b bg-white text-black font-playfair fixed w-full z-20 items-center">
@@ -44,7 +46,7 @@ const Header = () => {
             <HiOutlineShoppingBag size={30} />
             {/* Cart Items total */}
             <span className="absolute top-1 right-3 text-md font-poppins text-gray-800 p-1 rounded-xl">
-              {totalItems && totalItems !== 0 ? totalItems : null}
+              {totalItems && totalItems.length !== 0 ? totalItems : null}
             </span>
           </Link>
         </li>
